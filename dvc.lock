@@ -1,0 +1,48 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python src/train/train.py
+    deps:
+    - path: params.yaml
+      hash: md5
+      md5: 5639386d8c4458d532654cbddd906ab2
+      size: 302
+    - path: src/train/train.py
+      hash: md5
+      md5: e38664b1cd4e74a2a1f6ea81dccf4d21
+      size: 3123
+    outs:
+    - path: artifacts/best.pt
+      hash: md5
+      md5: e471bc8026875a691da492b926ec033a
+      size: 6218467
+    - path: outputs/train
+      hash: md5
+      md5: 2ad603254743640fd7b096b1fd8046bf.dir
+      size: 17346822
+      nfiles: 23
+  eval:
+    cmd: python src/eval/eval.py
+    deps:
+    - path: artifacts/best.pt
+      hash: md5
+      md5: e471bc8026875a691da492b926ec033a
+      size: 6218467
+    - path: params.yaml
+      hash: md5
+      md5: 5639386d8c4458d532654cbddd906ab2
+      size: 302
+    - path: src/eval/eval.py
+      hash: md5
+      md5: dbdd52fad2b03902fe92a9b89c2a5f39
+      size: 2651
+    outs:
+    - path: outputs/val
+      hash: md5
+      md5: f3291e26a3b1b6b2ce136ef0e1053b0a.dir
+      size: 5242314
+      nfiles: 12
+    - path: reports/metrics.json
+      hash: md5
+      md5: 99914b932bd37a50b983c5e7c90ae93b
+      size: 2
