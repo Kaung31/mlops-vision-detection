@@ -1,0 +1,15 @@
+from ultralytics import YOLO
+
+model = YOLO(r"D:\mlops-vision-detection\models\best.pt")  # your trained weights
+
+# Run prediction on a local image
+results = model.predict(
+    source=r"D:\mlops-vision-detection\samples\test.jpg",
+    conf=0.25,
+    save=True,
+    project=r"D:\mlops-vision-detection\runs\detect\predict",
+    name="predictions"
+)
+
+print("Saved prediction images to:", results[0].save_dir)
+print("Detections:", len(results[0].boxes))

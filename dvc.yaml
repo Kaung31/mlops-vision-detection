@@ -1,0 +1,19 @@
+stages:
+  train:
+    cmd: python src/train/train.py
+    deps:
+      - src/train/train.py
+      - params.yaml
+    outs:
+      - artifacts/best.pt
+      - outputs/train
+
+  eval:
+    cmd: python src/eval/eval.py
+    deps:
+      - src/eval/eval.py
+      - params.yaml
+      - artifacts/best.pt
+    outs:
+      - reports/metrics.json
+      - outputs/val

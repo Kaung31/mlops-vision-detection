@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# MLflow local storage
+mlruns/
+mlflow_artifacts/
+
+# YOLO outputs
+runs/
+outputs/
+
+# Local datasets downloaded by YOLO
+construction-ppe/
+
+# Model weights (we'll publish to HF or track with DVC remote later)
+*.pt
+
+# OS stuff
+.DS_Store
+Thumbs.db
