@@ -13,5 +13,6 @@ paths:
   reports_dir: reports
 
 mlflow:
-  tracking_uri: http://127.0.0.1:5000
+  enabled: false
+  tracking_uri: ""
   experiment: ppe-detection
