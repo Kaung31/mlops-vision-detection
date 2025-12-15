@@ -109,7 +109,7 @@ Outputs:
 
 The demo Space loads best.pt from the Hugging Face model repo.
 
-# Updating the live demo model
+### Updating the live demo model
 
 1.Retrain on Colab (GPU)
 
