@@ -61,47 +61,46 @@ mlops-vision-detection/
 
 ### 1) Create & activate a virtual environment
 
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -U pip
+- python -m venv .venv
+- .\.venv\Scripts\Activate.ps1
+- python -m pip install -U pip
 
 ### 2) Install dependencies
 
-pip install -r requirements.txt
-pip install dvc mlflow ultralytics pyyaml pandas
+- pip install -r requirements.txt
+- pip install dvc mlflow ultralytics pyyaml pandas
 
 ### 3) Start MLflow (optional but recommended)
 
-docker compose up -d
-Open MLflow UI:
-http://127.0.0.1:5000
+- docker compose up -d
+- Open MLflow UI: http://127.0.0.1:5000
 
 ### 4) Run the pipeline
-If dvc is not recognized on Windows, run it via Python:
-python -m dvc repro
-This will:
--train (CPU test run)
--evaluate
--save reports/metrics.json
--produce artifacts/best.pt
--log runs to MLflow (if enabled locally)
+- If dvc is not recognized on Windows, run it via Python:
+- python -m dvc repro
+- This will:
+  - train (CPU test run)
+  - evaluate
+  -  save reports/metrics.json
+  -  produce artifacts/best.pt
+  -  log runs to MLflow (if enabled locally)
 
 ## ⚡ Train on Google Colab (GPU) — recommended for best model
 
 Local CPU is mainly for testing the pipeline. For a better model, train on Colab GPU:
 
-1.Clone the repo in Colab
-2.Install dependencies
-3.Switch to GPU params and run the pipeline:
+#### 1.Clone the repo in Colab
+#### 2.Install dependencies
+#### 3.Switch to GPU params and run the pipeline:
 
-cp params.colab.yaml params.yaml
-python -m dvc repro
+- cp params.colab.yaml params.yaml
+- python -m dvc repro
 
 
-Outputs:
+## Outputs:
 
--artifacts/best.pt
--eports/metrics.json
+- artifacts/best.pt
+- eports/metrics.json
 
 ✅ Save them to Google Drive so you don’t lose them when the Colab session resets.
 
@@ -111,19 +110,19 @@ The demo Space loads best.pt from the Hugging Face model repo.
 
 ### Updating the live demo model
 
-1.Retrain on Colab (GPU)
+- Retrain on Colab (GPU)
 
-2.Upload the new best.pt to your Hugging Face model repo
+- Upload the new best.pt to your Hugging Face model repo
 
-3.The Space automatically uses the latest best.pt
+- The Space automatically uses the latest best.pt
 
 ##  🧠 Why this counts as “MLOps”
 
-DVC: reproducible pipelines (train/eval stages, tracked outputs)
+- DVC: reproducible pipelines (train/eval stages, tracked outputs)
 
-MLflow: experiment tracking (params, metrics, artifacts)
+- MLflow: experiment tracking (params, metrics, artifacts)
 
-Hugging Face Space: public deployment + demo UI
+- Hugging Face Space: public deployment + demo UI
 
 ## 📌 Demo
 
